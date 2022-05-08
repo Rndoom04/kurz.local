@@ -13,7 +13,7 @@
 
         <div class="container">
             <main>
-                <?php require_once("./view/onas.php"); ?>
+                <?php require_once("./view/admin.php"); ?>
             </main>
         </div>
 

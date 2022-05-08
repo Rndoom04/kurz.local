@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Verzování
 $production = false;
 
@@ -10,6 +12,31 @@ if ($production) {
 
 // Funkce
 require_once("scripts.php");
+
+// Databáze
+define("SQL_HOST", "localhost");
+define("SQL_DBNAME", "kurzKozel");
+define("SQL_USERNAME", "kurz");
+define("SQL_PASSWORD", "I873Sc!Khb/wG6hU");
+
+$dbspojeni = @mysqli_connect(SQL_HOST, SQL_USERNAME, SQL_PASSWORD, SQL_DBNAME);
+if (!$dbspojeni) {
+    //throw new Exception(mysqli_connect_error(), mysqli_connect_errno());
+    echo "Chyba spojeni s databazi."; die();
+}
+mysqli_query($dbspojeni, "SET NAMES utf8");
+
+
+// Administrátor
+$admin_id = null;
+$jmeno_admina = null;
+if (isset($_SESSION["adminID"])) {
+    $admin_id = (int)$_SESSION["adminID"];
+    $navrat = mysqli_query($dbspojeni, "SELECT * FROM admin WHERE id=$admin_id;");
+    $radek = mysqli_fetch_assoc($navrat);
+
+    $jmeno_admina = $radek['jmeno'];
+}
 
 
 // Hlavní menu

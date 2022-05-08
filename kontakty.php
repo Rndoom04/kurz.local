@@ -7,16 +7,16 @@
     </head>
 
     <body>
-        <div class="container">
-            <header>
-                <?php require_once("./modules/menu.php"); ?>
-            </header>
+        <header>
+            <?php require_once("./modules/menu.php"); ?>
+        </header>
 
+        <div class="container">
             <main>
                 <?php require_once("./view/kontakty.php"); ?>
             </main>
-
-            <?php require_once("./modules/footer.php"); ?>
         </div>
+
+        <?php require_once("./modules/footer.php"); ?>
     </body>
 </html>
