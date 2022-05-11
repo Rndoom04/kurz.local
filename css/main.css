@@ -119,3 +119,47 @@ input, textarea {
 .btn-primary:hover {
     background-color: #1580B4;
 }
+
+
+/* Admin */
+.adminLayout {
+    font-size: 0;
+}
+.adminLayout .levyPanel, .adminLayout .pravyPanel {
+    display: inline-block;
+    font-size: initial;
+    vertical-align: top;
+}
+.adminLayout .levyPanel {
+    width: 20%;
+    background-color: red;
+}
+.adminLayout .pravyPanel {
+    width: 80%;
+    background-color: blue;
+}
+
+nav.adminMenu ul {
+    margin: 0;
+    padding: 0; 
+    list-style-type: none;
+    font-size: 0;
+}
+
+nav.adminMenu ul li {
+    width: auto;
+    display: block;
+}
+
+nav.adminMenu ul li a {
+    display: block;
+    padding: 16px 32px;
+    font-size: initial;
+    color: black;
+    font-size: 18px;
+}
+
+nav.adminMenu ul li a:hover {
+    background-color: white;
+    color: black;
+}
