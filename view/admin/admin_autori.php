@@ -1,5 +1,5 @@
 <?php
-    $narodnost = [
+    $narodnost_form = [
         "ceska" => "Česká",
         "slovenska" => "Slovenská",
         "ceskoslovenska" => "Československá",
@@ -7,6 +7,27 @@
         "madarska" => "Maďarská",
         "americka" => "Americká",
     ];
+    
+    if (isset($_POST['token']) && $_POST['token'] == "admin_autori_form") {
+        $jmeno = magic_string($dbspojeni, $_POST["jmeno"]);
+        $datum_narozeni = magic_string($dbspojeni, $_POST["datum_narozeni"]);
+        $narodnost = magic_string($dbspojeni, $_POST["narodnost"]);
+        $bio = magic_string($dbspojeni, $_POST["bio"]);
+        
+        $navrat = mysqli_query($dbspojeni, "INSERT INTO autori (id, jmeno, datum_narozeni, narodnost, bio, datum_zalozeni) VALUES (NULL, '$jmeno', '$datum_narozeni', '$narodnost', '$bio', NULL);");
+        
+        if ($navrat) {
+            // Vložilo se to do db
+            hlaska("Autor byl úspěšně přidán.");
+            Header("Refresh:0");
+            die();
+        } else {
+            // Nevložilo se to do db, něco špatně
+            echo "Nastal problém s vkládáním dat do databáze.";
+        }
+        
+        die();
+    }
 ?>
 
 <div class="admin-form">
@@ -22,7 +43,7 @@
         <label><strong>Národnost:</strong></label>
         <select name="narodnost">
             <?php
-            foreach($narodnost as $key=>$value) {
+            foreach($narodnost_form as $key=>$value) {
                 ?>
                     <option value="<?=$key;?>"><?=$value;?></option>
                 <?php

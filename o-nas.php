@@ -13,6 +13,7 @@
 
         <div class="container">
             <main>
+                <?php require_once("./modules/hlasky.php"); ?>
                 <?php require_once("./view/onas.php"); ?>
             </main>
         </div>

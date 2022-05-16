@@ -26,7 +26,6 @@ if (!$dbspojeni) {
 }
 mysqli_query($dbspojeni, "SET NAMES utf8");
 
-
 // Administrátor
 $admin_id = null;
 $jmeno_admina = null;
@@ -67,4 +66,7 @@ $menu = [
         "tooltip" => "Kontakty tooltip"
     ]
 ];
+
+// Přečti hlášky
+$hlaska = prectiHlasky();
 ?>
