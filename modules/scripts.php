@@ -11,7 +11,8 @@ function remove_scripts($vstup) {
 
 function magic_string($dbspojeni, $vstup) {
     $prom = trim($vstup);
-    $prom = remove_scripts($prom);
+    $prom = remove_scripts($prom); // Remove javascript
+    $prom = strip_tags($prom); // Remove HTML & PHP scripts
     $prom = mysqli_real_escape_string($dbspojeni, $prom);
     
     return $prom;

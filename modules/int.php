@@ -69,4 +69,27 @@ $menu = [
 
 // Přečti hlášky
 $hlaska = prectiHlasky();
+
+
+// Autoři - národnosti
+$dotaz = mysqli_query($dbspojeni, "SELECT * FROM narodnosti_autoru;");
+$narodnosti_autoru_temp = mysqli_fetch_all($dotaz, MYSQLI_ASSOC);
+$narodnosti_autoru = [];
+foreach($narodnosti_autoru_temp as $zaznam) {
+    $zaznam_id = $zaznam["id"];
+    $narodnost = $zaznam['narodnost'];
+    
+    $narodnosti_autoru[$zaznam_id] = $narodnost;
+}
+
+// Filmy žánry
+$dotaz = mysqli_query($dbspojeni, "SELECT * FROM zanry_filmu;");
+$zanry_filmu_temp = mysqli_fetch_all($dotaz, MYSQLI_ASSOC);
+$zanry_filmu = [];
+foreach($zanry_filmu_temp as $zaznam) {
+    $zaznam_id = $zaznam["id"];
+    $zanr = $zaznam['zanr'];
+    
+    $zanry_filmu[$zaznam_id] = $zanr;
+}
 ?>

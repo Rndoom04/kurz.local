@@ -13,12 +13,27 @@ p {
     margin-bottom: 16px;
 }
 p:last-child { margin-bottom: 0; }
+.small { font-size: 12px; }
+.img-fluid { max-width: 100%; }
 
 .mb-0 { margin: 0; }
+.mb-2 { margin-bottom: 16px; }
+.mb-4 { margin-bottom: 32px; }
+.my-auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+img.rounded { border-radius: 50%; }
+.relative { position: relative; }
+.absolute { position: absolute; }
 
 .text-left { text-align: left; }
 .text-center { text-align: center; }
 .text-right { text-align: right; }
+
+.h100p { height: 100%; }
+
+.stroke { text-decoration: line-through; }
 
 h1 { text-align: center; }
 
@@ -62,6 +77,10 @@ nav.mainMenu ul li a:hover {
 /* Body */
 .container {
     width: 1200px;
+    margin: 0 auto;
+}
+.container-fluid {
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -154,6 +173,7 @@ input, textarea {
 /* Admin */
 .adminLayout {
     font-size: 0;
+    display: flex;
 }
 .adminLayout .levyPanel, .adminLayout .pravyPanel {
     display: inline-block;
@@ -162,11 +182,14 @@ input, textarea {
 }
 .adminLayout .levyPanel {
     width: 20%;
-    background-color: red;
+    background-color: #f2f2f2;
+    padding-right: 4px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 .adminLayout .pravyPanel {
     width: 80%;
-    background-color: blue;
+    padding: 0 15px;
 }
 
 nav.adminMenu ul {
@@ -187,9 +210,106 @@ nav.adminMenu ul li a {
     font-size: initial;
     color: black;
     font-size: 18px;
+    border-left: 3px #f2f2f2 solid;
 }
 
 nav.adminMenu ul li a:hover {
     background-color: white;
+    border-left: 3px #1ba1e2 solid;
     color: black;
+}
+
+.card {
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+/* Stránka autoři */
+.autori .autor {
+    margin-bottom: 16px;
+}
+.autori .autor h2 {
+    margin-top: 0;
+}
+.autori .autor h2 small {
+    font-size: 14px;
+}
+
+
+/* Stránka filmy */
+.filmy .film {
+    margin-bottom: 64px;
+}
+.filmy .film h2 small {
+    font-size: 14px;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row .col-2 {
+    flex: 0 0 16.6666%;
+    max-width: 16.6666%;
+}
+.row .col-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.row .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.row .col-8 {
+    flex: 0 0 83.3333%;
+    max-width: 83.3333%;
+}
+
+[class*="col-"] {
+    padding: 0 16px;
+}
+
+
+/* Carousel */
+.homepage-hlavicka {
+    margin-top: -16px;
+    background-image: url('https://hbomax-images.warnermediacdn.com/2022-03/newheroimage_sources_2022_03_28_desktop_wave2_noheart_v3.jpg?host=wme-hbomax-drupal-prod.s3.amazonaws.com&w=2559');
+    background-size: cover;
+    background-position: 50%;
+    height: 75vh;
+}
+.homepage-hlavicka .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 100%;
+}
+.homepage-hlavicka .content .prodejni-info {
+    font-size: 10px;
+    color: #666
+}
+.btn-registrovat-se {
+    background: rgba(0, 0, 0, 0) linear-gradient(345deg, rgb(73, 12, 176) 0%, rgb(155, 52, 239) 33%, rgba(255, 255, 255, 0) 66%, rgba(255, 255, 255, 0) 100%) repeat scroll 99% 50% / 400% 400%;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: .55em 1.5em .5em;
+    border-radius: 16px;
+    margin-top: 16px;
+    display: block;
+    font-weight: 600;
+    border: 2px transparent solid;
+    transition: all 0.5s ease 0s !important;
+}
+.btn-registrovat-se:hover {
+    background-position: 1% 50%;
+    transition: all 0.5s ease 0s !important;
+    border: 2px solid rgb(198, 0, 255);
+    color: rgb(255, 255, 255);
 }

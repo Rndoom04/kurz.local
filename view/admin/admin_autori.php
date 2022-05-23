@@ -1,13 +1,4 @@
-<?php
-    $narodnost_form = [
-        "ceska" => "Česká",
-        "slovenska" => "Slovenská",
-        "ceskoslovenska" => "Československá",
-        "polska" => "Polská",
-        "madarska" => "Maďarská",
-        "americka" => "Americká",
-    ];
-    
+<?php    
     if (isset($_POST['token']) && $_POST['token'] == "admin_autori_form") {
         $jmeno = magic_string($dbspojeni, $_POST["jmeno"]);
         $datum_narozeni = magic_string($dbspojeni, $_POST["datum_narozeni"]);
@@ -43,7 +34,7 @@
         <label><strong>Národnost:</strong></label>
         <select name="narodnost">
             <?php
-            foreach($narodnost_form as $key=>$value) {
+            foreach($narodnosti_autoru as $key=>$value) {
                 ?>
                     <option value="<?=$key;?>"><?=$value;?></option>
                 <?php
