@@ -31,4 +31,29 @@ function prectiHlasky() {
     
     return null; 
 }
+
+function spocitejVek($datum_narozeni) {
+    // Datum narození - 1965-10-16 (má mu být 56) || pokud už datum byl, tak 57
+    $vek = null;
+    
+    // Data o narození
+    $rok_narozeni = (int)date("Y", strtotime($datum_narozeni)); // 1965
+    $mesic_narozeni = (int)date("m", strtotime($datum_narozeni)); // 10
+    $den_narozeni = (int)date("d", strtotime($datum_narozeni)); // 16
+    
+    // Aktuálně
+    $aktualni_rok = (int)date("Y", time()); // 2022
+    $aktualni_mesic = (int)date("m", time()); // 5
+    $aktualni_den = (int)date("d", time()); // 26
+    
+    // Výpočet
+    $vek = ($aktualni_rok-$rok_narozeni)-1; // 56
+    if ($mesic_narozeni <= $aktualni_mesic) {
+        if ($den_narozeni <= $aktualni_den) {
+            $vek++; // 57
+        }
+    }
+    
+    return (int)$vek;
+}
 ?>

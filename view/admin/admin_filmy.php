@@ -23,7 +23,7 @@
             if (!empty($nazev_filmu) && strlen($nazev_filmu) >= 5) {
                 if ($datum_vydani >= 1900 && $datum_vydani <= date("Y", time())) {
                     if (!empty($popis) && strlen($popis) >= 20) {
-                        $navrat = mysqli_query($dbspojeni, "INSERT INTO filmy (id, autorID, jmeno, popis, zanr, datum_vydani, datum_pridani) VALUES (NULL, '$autorID', '$nazev_filmu', '$popis', '$zanr', '$datum_vydani', NULL);");
+                        $navrat = mysqli_query($dbspojeni, "INSERT INTO filmy (id, autorID, jmeno, popis, zanrID, datum_vydani, datum_pridani) VALUES (NULL, '$autorID', '$nazev_filmu', '$popis', '$zanr', '$datum_vydani', NULL);");
                         if ($navrat) {
                             // Vložilo se to do db
                             hlaska("Film byl úspěšně přidán.");

@@ -17,7 +17,7 @@ $autori = mysqli_fetch_all($dotaz, MYSQLI_ASSOC);
                         <img src="https://www.kollertslavomir.cz/photo/600x600;;Foto autora" class="rounded img-fluid">
                     </div>
                     <div class="col-8 my-auto">
-                        <h2><a href="autor.php?autor=1"><?=$autor['jmeno'];?></a> <small><?=$narodnosti_autoru[$narodnost_key];?></small></h2>
+                        <h2><a href="autor.php?autor=<?=$autor['id'];?>"><?=$autor['jmeno'];?></a> <small><?=$narodnosti_autoru[$narodnost_key];?></small></h2>
                         <p><?=$autor['bio'];?></p>
                         <p class="small">Datum narození: <?= date("j.n.Y", strtotime($autor['datum_narozeni']));?></p>
                     </div>

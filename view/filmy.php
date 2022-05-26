@@ -17,7 +17,7 @@ $filmy = mysqli_fetch_all($dotaz, MYSQLI_ASSOC);
                         <img src="https://www.kollertslavomir.cz/photo/600x800;;Foto autora" class="img-fluid">
                     </div>
                     <div class="col-8 my-auto">
-                        <h2><a href="filmy.php?autor=1"><?=$film['jmeno'];?></a> <small><?=$zanry_filmu[$zanr_key];?></small></h2>
+                        <h2><a href="film.php?film=<?=$film['id'];?>"><?=$film['jmeno'];?></a> <small><?=$zanry_filmu[$zanr_key];?></small></h2>
                         <p><?=$film['popis'];?></p>
                         <p class="small">Datum vydání: <?=$film['datum_vydani'];?></p>
                     </div>

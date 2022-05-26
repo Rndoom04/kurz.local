@@ -5,7 +5,7 @@
         $narodnost = magic_string($dbspojeni, $_POST["narodnost"]);
         $bio = magic_string($dbspojeni, $_POST["bio"]);
         
-        $navrat = mysqli_query($dbspojeni, "INSERT INTO autori (id, jmeno, datum_narozeni, narodnost, bio, datum_zalozeni) VALUES (NULL, '$jmeno', '$datum_narozeni', '$narodnost', '$bio', NULL);");
+        $navrat = mysqli_query($dbspojeni, "INSERT INTO autori (id, jmeno, datum_narozeni, narodnostID, bio, datum_zalozeni) VALUES (NULL, '$jmeno', '$datum_narozeni', '$narodnost', '$bio', NULL);");
         
         if ($navrat) {
             // Vložilo se to do db
