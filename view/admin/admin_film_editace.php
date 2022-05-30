@@ -46,7 +46,7 @@
             echo "Zvolený žánr neexistuje.";
         }
         die();
-    }
+    }    
     
     // Výpis filmů
     $dotaz = mysqli_query($dbspojeni, "SELECT * FROM filmy;");
@@ -89,34 +89,7 @@
         <input type="number" name="datum_vydani"><br>
 
         <div class="text-right">
-            <button class="btn btn-primary">Přidat film</button>
+            <button class="btn btn-primary">Uložit změny</button>
         </div>
     </form>
-    
-    
-    
-    <hr>
-    <h3>Výpis</h3>
-    <table class="adminTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Jméno</th>
-                <th class="text-right">Akce</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <?php
-            foreach ($filmy as $film) { ?>
-                <tr>
-                    <td><?=$film['id'];?></td>
-                    <td><?=$film['jmeno'];?></td>
-                    <td class="text-right">
-                        <a href="admin.php?page=film_editace&filmID=<?=$film['id'];?>">Editovat</a>
-                    </td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
 </div>

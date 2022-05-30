@@ -19,6 +19,10 @@
         
         die();
     }
+    
+    // Výpis autorů
+    $dotaz = mysqli_query($dbspojeni, "SELECT * FROM autori;");
+    $autori = mysqli_fetch_all($dotaz, MYSQLI_ASSOC);
 ?>
 
 <div class="admin-form">
@@ -49,4 +53,29 @@
             <button class="btn btn-primary">Přidat autora</button>
         </div>
     </form>
+    
+    <hr>
+    <h3>Výpis</h3>
+    <table class="adminTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Jméno</th>
+                <th class="text-right">Akce</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <?php
+            foreach ($autori as $autor) { ?>
+                <tr>
+                    <td><?=$autor['id'];?></td>
+                    <td><?=$autor['jmeno'];?></td>
+                    <td class="text-right">
+                        <a href="admin.php?page=autor_editace&autorID=<?=$autor['id'];?>">Editovat</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </div>

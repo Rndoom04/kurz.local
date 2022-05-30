@@ -33,6 +33,11 @@
                             <div class="col-3"></div>
                         </div>
                         
+                        <form method="get" action="hledat.php">
+                            <input type="text" name="search">
+                            <input type="submit" value="Hledat">
+                        </form>
+                        
                         <p class="prodejni-info">*Sleva je vypočítána jako rozdíl mezi roční cenou zaplacenou předem a dvanáctinásobkem měsíční ceny (199 Kč).</p>
                     </div>
                 </div>

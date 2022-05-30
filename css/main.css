@@ -239,7 +239,7 @@ nav.adminMenu ul li a:hover {
 
 /* Stránka filmy */
 .filmy .film {
-    margin-bottom: 64px;
+    margin-bottom: 16px;
 }
 .filmy .film h2 small {
     font-size: 14px;
@@ -325,4 +325,23 @@ ul.filmy-hlavicka {
 ul.filmy-hlavicka li {
     display: inline-block;
     padding: 0 16px;
+}
+
+
+table.adminTable {
+    width: 100%;
+    text-align: left;
+}
+table.adminTable thead {
+    background-color: #555;
+    color: white;
+}
+table.adminTable tbody tr {
+    background-color: white;
+}
+table.adminTable tbody tr:nth-child(even) {
+    background-color: #DDD;
+}
+table.adminTable th, table.adminTable td {
+    padding: 8px;
 }

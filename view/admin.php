@@ -21,9 +21,11 @@ if (!empty($admin_id)) {
                 
                 if ($page == "autori") { include("admin/admin_autori.php"); }
                 elseif ($page == "filmy") { include("admin/admin_filmy.php"); }
+                elseif ($page == "autor_editace") { include("admin/admin_autor_editace.php"); }
+                elseif ($page == "film_editace") { include("admin/admin_film_editace.php"); }
                 else {
                     include("admin/admin_homepage.php");
-                }                
+                }           
                 ?>
             </div>
         </div>
