@@ -1,8 +1,6 @@
 <?php
-
     $autorID = isset($_GET["autorID"])?$_GET["autorID"]:null;
     $autorID = magic_string($dbspojeni, $autorID);
-
     
     $autorExists = false;
     if (!empty($autorID)) {

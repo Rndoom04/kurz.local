@@ -8,10 +8,10 @@ if (!empty($admin_id)) {
             <div class="levyPanel">
                 <nav class="adminMenu">
                     <ul>
-                        <li><a href="/admin.php">Dashboard</a></li>
-                        <li><a href="/admin.php?page=autori">Autoři</a></li>
-                        <li><a href="/admin.php?page=filmy">Filmy</a></li>
-                        <li><a href="/logout.php">Odhlásit se</a></li>
+                        <li><a href="/admin.php"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                        <li><a href="/admin.php?page=autori"><i class="fa-solid fa-users"></i> Autoři</a></li>
+                        <li><a href="/admin.php?page=filmy"><i class="fa-solid fa-clapperboard"></i> Filmy</a></li>
+                        <li><a href="/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Odhlásit se</a></li>
                     </ul>
                 </nav>
             </div>
