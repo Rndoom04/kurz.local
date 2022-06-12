@@ -56,4 +56,18 @@ function spocitejVek($datum_narozeni) {
     
     return (int)$vek;
 }
+
+function getKoncovkaSouboru($soubor) {
+    $exploded = explode(".", $soubor);
+    $pocet_prvku = count($exploded); // 3
+    return $exploded[$pocet_prvku-1];
+}
+
+function getKoncovkaSouboruMimeType($type) {
+    if ($type == "image/jpeg") { return "jpg"; }
+    elseif ($type == "image/jpg") { return "jpg"; }
+    elseif ($type == "image/png") { return "png"; }
+    
+    return null;
+}
 ?>

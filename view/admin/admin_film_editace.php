@@ -15,13 +15,9 @@
         
         $autori_form[$autorID] = $autorJmeno;
     }
-    
-    
 
     // Zpracuj formulář
-    if (isset($_POST['token']) && $_POST['token'] == "admin_filmy_form_editace") {
-        dump($_POST);
-        
+    if (isset($_POST['token']) && $_POST['token'] == "admin_filmy_form_editace") {        
         $filmIDForm = magic_string($dbspojeni, $_POST["filmID"]);
         $nazev_filmu = magic_string($dbspojeni, $_POST["nazev_filmu"]);
         $autorID = (int)magic_string($dbspojeni, $_POST["autor"]);
@@ -42,6 +38,31 @@
                             if ($navrat) {
                                 // Vložilo se to do db
                                 hlaska("Film byl úspěšně přidán.");
+                                
+                                // Upload souborů
+                                if (isset($_FILES) && !empty($_FILES)) {
+                                    $foto = $_FILES['foto'];
+                                    if (isset($foto['type']) && in_array($foto['type'], $photo_whitelist)) {
+                                        $velikost_souboru = $foto['size'];
+                                        if ($velikost_souboru > 0 ) {
+                                            $umisteni_temp = $foto['tmp_name'];
+                                            $umisteni = "images/filmy/".$filmIDForm.".".getKoncovkaSouboruMimeType($foto['type']);
+
+                                            if (copy($umisteni_temp, $umisteni)) {
+                                                // OK - dej do db.
+                                            } else {
+                                                hlaska("Fotka filmu nebyla nahrána.");
+                                            }
+                                        } else {
+                                            hlaska("Velikost nahrávaného souboru musí být větší 0B.");
+                                        }
+                                    } else {
+                                        hlaska("Typ souboru není podporován.");
+                                    }
+                                } else {
+                                    hlaska("Foto nebylo nahráno.");
+                                }
+                                
                                 Header("Refresh:0");
                                 die();
                             } else {
@@ -70,7 +91,7 @@
 ?>
 
 <div class="admin-form">
-    <form method="POST" action="">
+    <form method="POST" action="" enctype="multipart/form-data">
         <input type="hidden" name="token" value="admin_filmy_form_editace">
         <input type="hidden" name="filmID" value="<?=$filmID;?>">
         
@@ -116,6 +137,9 @@
 
         <label><strong>Datum vydání:</strong></label>
         <input type="number" name="datum_vydani" value="<?=isset($film['datum_vydani'])?$film['datum_vydani']:null;?>"><br>
+            
+        <label><strong>Foto:</strong></label>
+        <input type="file" name="foto">
 
         <div class="text-right">
             <button class="btn btn-primary">Uložit změny</button>

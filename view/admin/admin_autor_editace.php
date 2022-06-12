@@ -36,6 +36,27 @@
         if ($navrat) {
             // Vložilo se to do db
             hlaska("Autor byl úspěšně upraven.");
+            
+            // Upload souborů
+            if (isset($_FILES) && !empty($_FILES)) {
+                $foto = $_FILES['foto'];
+                if (isset($foto['type']) && in_array($foto['type'], $photo_whitelist)) {
+                    $velikost_souboru = $foto['size'];
+                    if ($velikost_souboru > 0 ) {                        
+                        $umisteni_temp = $foto['tmp_name'];
+                        $umisteni = "images/autori/".$idAutoraForm.".".getKoncovkaSouboruMimeType($foto['type']);
+                        
+                        copy($umisteni_temp, $umisteni);
+                    } else {
+                        hlaska("Velikost nahrávaného souboru musí být větší 0B.");
+                    }
+                } else {
+                    hlaska("Typ souboru není podporován.");
+                }
+            } else {
+                hlaska("Foto nebylo nahráno.");
+            }
+            
             Header("Refresh:0");
             die();
         } else {
@@ -48,7 +69,7 @@
 ?>
 
 <div class="admin-form">
-    <form method="POST" action="">
+    <form method="POST" action="" enctype="multipart/form-data">
         <input type="hidden" name="token" value="admin_autori_form_editace">
         <input type="hidden" name="autorID" value="<?=$autor['id'];?>">
 
@@ -76,7 +97,10 @@
         </select>
 
         <label><strong>Bio:</strong></label>
-        <textarea name="bio" placeholder="Zadejte bio autora."><?=isset($autor['bio'])?$autor['bio']:null;?></textarea>
+        <textarea name="bio" placeholder="Zadejte bio autora." rows="10"><?=isset($autor['bio'])?$autor['bio']:null;?></textarea>
+        
+        <label><strong>Foto:</strong></label>
+        <input type="file" name="foto">
 
         <div class="text-right">
             <button class="btn btn-primary">Uložit změny</button>

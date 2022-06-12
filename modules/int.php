@@ -92,4 +92,11 @@ foreach($zanry_filmu_temp as $zaznam) {
     
     $zanry_filmu[$zaznam_id] = $zanr;
 }
+
+// Mime type whitelist fotek
+$photo_whitelist = [
+    "image/jpg",
+    "image/jpeg",
+    "image/png"
+];
 ?>
